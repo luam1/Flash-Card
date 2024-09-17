@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flashcards com Troca de Cartões</title>
+    <title>Flashcards de Perguntas e Respostas</title>
     <style>
         * {
             margin: 0;
@@ -23,7 +23,6 @@
 
         .container {
             perspective: 1000px;
-            margin-bottom: 20px;
         }
 
         .flashcard {
@@ -47,8 +46,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 24px;
+            font-size: 20px;
             border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .front {
@@ -63,6 +64,7 @@
         .button-container {
             display: flex;
             justify-content: space-between;
+            margin-top: 20px;
             width: 300px;
         }
 
@@ -83,8 +85,8 @@
 <body>
     <div class="container">
         <div class="flashcard" id="flashcard">
-            <div class="face front" id="frontText">Frente 1</div>
-            <div class="face back" id="backText">Verso 1</div>
+            <div class="face front" id="frontText">Pergunta 1: O que é HTML?</div>
+            <div class="face back" id="backText">Resposta: HTML é uma linguagem de marcação usada para criar páginas web.</div>
         </div>
     </div>
 
@@ -101,13 +103,14 @@
         const nextBtn = document.getElementById('nextBtn');
 
         const flashcards = [
-            { front: 'Frente 1', back: 'Verso 1' },
-            { front: 'Frente 2', back: 'Verso 2' },
-            { front: 'Frente 3', back: 'Verso 3' }
+            { front: 'Pergunta 1: O que é HTML?', back: 'Resposta: HTML é uma linguagem de marcação usada para criar páginas web.' },
+            { front: 'Pergunta 2: O que é CSS?', back: 'Resposta: CSS é uma linguagem de estilos usada para estilizar elementos HTML.' },
+            { front: 'Pergunta 3: O que é JavaScript?', back: 'Resposta: JavaScript é uma linguagem de programação usada para criar interatividade em páginas web.' }
         ];
 
         let currentIndex = 0;
 
+        // Adiciona a animação de flip ao clicar no cartão
         flashcard.addEventListener('click', () => {
             flashcard.classList.toggle('is-flipped');
         });
@@ -120,6 +123,7 @@
             flashcard.classList.remove('is-flipped');
         }
 
+        // Navegação para o cartão anterior
         prevBtn.addEventListener('click', () => {
             if (currentIndex > 0) {
                 currentIndex--;
@@ -127,6 +131,7 @@
             }
         });
 
+        // Navegação para o próximo cartão
         nextBtn.addEventListener('click', () => {
             if (currentIndex < flashcards.length - 1) {
                 currentIndex++;
@@ -134,7 +139,7 @@
             }
         });
 
-        // Inicializa o primeiro flashcard
+        // Inicializa o primeiro cartão
         updateFlashcard(currentIndex);
     </script>
 </body>
