@@ -53,11 +53,11 @@
         }
 
         .front {
-            background-color: #000000;
+            background-color: #ffffff;
         }
 
         .back {
-            background-color: #000000;
+            background-color: #ffffff;
             transform: rotateY(180deg);
         }
 
@@ -71,7 +71,7 @@
         button {
             padding: 10px 20px;
             background-color: #000000;
-            color: white;
+            color: rgb(255, 217, 0);
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -80,7 +80,7 @@
         button:disabled {
             background-color: #ccc;
         }
-        h1-color {
+        h1 {
             color: rgb(251, 255, 0);
         }
     </style>
@@ -88,14 +88,14 @@
 <body>
     <div class="container">
         <div class="flashcard" id="flashcard">
-            <div class="face front" id="frontText"><h1 class="h1-color">Pergunta 1: O que é HTML?</h1></div>
-            <div class="face back" id="backText"><h1 class="h1-color">Resposta: HTML é uma linguagem de marcação usada para criar páginas web.</h1></div>
+            <div class="face front" id="frontText"><h1>Pergunta 1: O que é HTML?</h1></div>
+            <div class="face back" id="backText"><h1>Resposta: HTML é uma linguagem de marcação usada para criar páginas web.</h1></div>
         </div>
     </div>
 
     <div class="button-container">
-        <button id="prevBtn" disabled><h1 class="h1-color">Anterior</h1></button>
-        <button id="nextBtn"><h1 class="h1-color">Próximo</h1></button>
+        <button id="prevBtn" disabled><h1>Anterior</h1></button>
+        <button id="nextBtn"><h1>Próximo</h1></button>
     </div>
 
     <script>
