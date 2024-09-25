@@ -16,10 +16,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 50vh;
-            background-image: url(https://img.freepik.com/vetores-premium/fundo-de-moldura-grunge_1102-1452.jpg);
-            width: 100%;
-            flex-direction: column-reverse;
+            min-height: 100vh;
+            background-image: url('https://img.freepik.com/vetores-premium/fundo-de-moldura-grunge_1102-1452.jpg');
+            background-size: cover;
+            background-position: center;
+            flex-direction: column;
         }
 
         .container {
@@ -50,7 +51,7 @@
             font-size: 20px;
             border-radius: 10px;
             padding: 20px;
-            box-shadow: 0 4px 8px rgb(247, 247, 247);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .front {
@@ -59,6 +60,7 @@
 
         .back {
             background-color: #3d50f5;
+            color: white;
             transform: rotateY(180deg);
         }
 
@@ -76,6 +78,11 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #333333;
         }
 
         button:disabled {
@@ -84,7 +91,7 @@
     </style>
 </head>
 <body>
-    
+
     <div class="container">
         <div class="flashcard" id="flashcard">
             <div class="face front" id="frontText"><h1>Pergunta 1: O que é HTML?</h1></div>
@@ -108,7 +115,12 @@
             { front: 'Pergunta 1: O que é HTML?', back: 'Resposta: HTML é uma linguagem de marcação usada para criar páginas web.' },
             { front: 'Pergunta 2: O que é CSS?', back: 'Resposta: CSS é uma linguagem de estilos usada para estilizar elementos HTML.' },
             { front: 'Pergunta 3: O que é JavaScript?', back: 'Resposta: JavaScript é uma linguagem de programação usada para criar interatividade em páginas web.' },
-            { front: 'Pergunta 4: Que tag e usada para espaçar uma linha?', back: 'Resposta: E tag br que termina uma linhan em um ponto determinado.'}
+            { front: 'Pergunta 4: Que tag é usada para espaçar uma linha?', back: 'Resposta: A tag <br> é usada para pular uma linha no HTML.' },
+            { front: 'Pergunta 5: O que é um servidor web?', back: 'Resposta: Um servidor web é um software que hospeda páginas da web e as entrega aos navegadores.' },
+            { front: 'Pergunta 6: O que é uma API?', back: 'Resposta: API é um conjunto de definições e protocolos para integração de software.' },
+            { front: 'Pergunta 7: O que é DOM?', back: 'Resposta: DOM é a interface de programação para documentos HTML, representando a estrutura da página.' },
+            { front: 'Pergunta 8: O que é um framework?', back: 'Resposta: Framework é uma estrutura pré-definida que facilita o desenvolvimento de software.' },
+            { front: 'Pergunta 9: O que é um banco de dados?', back: 'Resposta: Um banco de dados é uma coleção organizada de dados que podem ser acessados e manipulados eletronicamente.' }
         ];
 
         let currentIndex = 0;
@@ -118,8 +130,8 @@
         });
 
         function updateFlashcard(index) {
-            frontText.textContent = flashcards[index].front;
-            backText.textContent = flashcards[index].back;
+            frontText.innerHTML = `<h1>${flashcards[index].front}</h1>`;
+            backText.innerHTML = `<h1>${flashcards[index].back}</h1>`;
             prevBtn.disabled = index === 0;
             nextBtn.disabled = index === flashcards.length - 1;
             flashcard.classList.remove('is-flipped');
